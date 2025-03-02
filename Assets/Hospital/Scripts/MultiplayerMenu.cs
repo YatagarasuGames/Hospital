@@ -17,12 +17,13 @@ public class MultiplayerMenu : MonoBehaviour
 
     public void StartClient()
     {
-        _networkManager.StartClient();
         _networkManager.networkAddress = _IPinputField.text;
         if (Transport.active is PortTransport portTransport)
         {
             if (ushort.TryParse(_portInputField.ToString(), out ushort port))
                 portTransport.Port = port;
         }
+        _networkManager.StartClient();
+
     }
 }
