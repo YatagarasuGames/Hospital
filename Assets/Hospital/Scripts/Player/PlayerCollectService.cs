@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using TMPro;
 
 public class PlayerCollectService : NetworkBehaviour
 {
     [SerializeField] private Transform _camera;
     [SerializeField] private GameObject _juice;
+    [SerializeField] private TMP_Text _juiceCountText;
+    [SyncVar(hook = nameof(SyncJuiceCount))] private int _juiceCount;
 
     private void Update()
     {
@@ -36,9 +39,15 @@ public class PlayerCollectService : NetworkBehaviour
             if(hit.collider.gameObject.TryGetComponent(out ICollectable collectable))
             {
                 collectable.Collect();
-
+                _juiceCount++;
+                _juiceCountText.text = string.Format("JuiceCount: {0}", _juiceCount.ToString());
             }            
         }
+    }
+
+    public void SyncJuiceCount(int oldValue, int newValue)
+    {
+        _juiceCountText.text = string.Format("JuiceCount: {0}", newValue.ToString());
     }
 
     [Command]
