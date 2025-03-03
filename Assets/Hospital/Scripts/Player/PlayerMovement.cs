@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
+    [SerializeField] private Animator _animator;
     private Rigidbody _rb;
 
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>();
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         if (_rb.isKinematic) return;
+        _animator.SetBool("Walking", _rb.velocity.magnitude >= 0.2f);
         if (speedOverrides.Count > 0)
         {
             _speed = speedOverrides[speedOverrides.Count - 1]();
