@@ -8,6 +8,7 @@ public class PlayerCollectService : NetworkBehaviour
 {
     [SerializeField] private Transform _camera;
     [SerializeField] private GameObject _juice;
+    [SerializeField] private GameObject _table;
     [SerializeField] private TMP_Text _juiceCountText;
     [SyncVar(hook = nameof(SyncJuiceCount))] private int _juiceCount;
 
@@ -61,6 +62,8 @@ public class PlayerCollectService : NetworkBehaviour
     {
         var juice = Instantiate(_juice);
         NetworkServer.Spawn(juice);
+        var table = Instantiate(_table);
+        NetworkServer.Spawn(table);
     }
 
     [Command]
