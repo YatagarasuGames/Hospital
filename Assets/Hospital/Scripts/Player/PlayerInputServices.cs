@@ -6,19 +6,39 @@ using UnityEngine;
 public class PlayerInputServices : NetworkBehaviour
 {
     [SerializeField] private Transform _camera;
-    private PlayerCollectService _playerCollectService;
-    private void Start()
+    private PlayerLongInteractService _playerLongInteractService;
+    
+    public override void OnStartClient()
     {
-        //_playerCollectService = new PlayerCollectService(_camera);
+        Init();
+        Application.targetFrameRate = 60;
     }
+
+    private void Init()
+    {
+        _playerLongInteractService = new PlayerLongInteractService(_camera);
+    }
+
     private void Update()
     {
         if (isOwned)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKey(KeyCode.E))
             {
-                _playerCollectService.Collect();
+                if (isServer) LongInteract();
+                else CmdLongInteract();
             }
         }
+    }
+
+    [Server]
+    private void LongInteract()
+    {
+        _playerLongInteractService.Interact();
+    }
+    [Command]
+    private void CmdLongInteract()
+    {
+        _playerLongInteractService.CmdInetract();
     }
 }

@@ -7,14 +7,14 @@ public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Animator _animator;
-    private Rigidbody _rb;
+    [SerializeField] private Rigidbody _rb;
 
     public readonly SyncList<float> speedOverrides = new SyncList<float>();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
-        _rb ??= GetComponent<Rigidbody>();
+        //_rb ??= GetComponent<Rigidbody>();
     }
 
     private void Move()
