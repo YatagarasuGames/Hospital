@@ -2713,7 +2713,6 @@ GameObject:
   - component: {fileID: 3646779505063411707}
   - component: {fileID: 4523090148582422227}
   - component: {fileID: 8399536238480902586}
-  - component: {fileID: 6560319309197897339}
   - component: {fileID: 2927724543959806017}
   - component: {fileID: 282202428297410205}
   - component: {fileID: 952743483908593882}
@@ -2934,26 +2933,6 @@ MonoBehaviour:
   _speed: 5
   _animator: {fileID: 3263867983937321077}
   _rb: {fileID: 3646779505063411707}
---- !u!114 &6560319309197897339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8708819487122946043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccbad7003e586b24990d82c0211578af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _camera: {fileID: 8842989815974024140}
-  _juice: {fileID: 2742312056757452687, guid: b3ce48a4a4fabc74c88e34077bebf4fc, type: 3}
-  _table: {fileID: 6141321415495911032, guid: e1f8f1b5e2818024eb83dfbf8295f20a, type: 3}
-  _trap: {fileID: 6474216338644661876, guid: 9100ff3f33f1e064d8d3b565f3218404, type: 3}
-  _juiceCountText: {fileID: 544450347918573853}
 --- !u!114 &2927724543959806017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3003,6 +2982,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _camera: {fileID: 8842989815974024140}
+  _juice: {fileID: 2742312056757452687, guid: b3ce48a4a4fabc74c88e34077bebf4fc, type: 3}
 --- !u!1 &8964677444224272377
 GameObject:
   m_ObjectHideFlags: 0

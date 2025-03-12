@@ -44,6 +44,7 @@ public class SteamLobby : MonoBehaviour
     public void HostLobby()
     {
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, networkManager.maxConnections);
+        
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -53,7 +54,8 @@ public class SteamLobby : MonoBehaviour
         networkManager.StartHost();
 
         SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
-        SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name", SteamFriends.GetPersonaName().ToString());
+        SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name", $"{SteamFriends.GetPersonaName()}'s HospitalYG");
+        print(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name").Contains("HospitalYG"));
 
     }
 
@@ -83,6 +85,7 @@ public class SteamLobby : MonoBehaviour
         if(lobbyIDs.Count > 0) lobbyIDs.Clear();
 
         SteamMatchmaking.AddRequestLobbyListResultCountFilter(60);
+        //SteamMatchmaking.AddRequestLobbyListStringFilter("name", "HospitalYG", ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
         SteamMatchmaking.RequestLobbyList();
     }
 

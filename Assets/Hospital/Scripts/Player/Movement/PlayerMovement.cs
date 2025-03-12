@@ -8,18 +8,19 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody _rb;
+    private PlayerTrappedState _playerTrapped;
 
     public readonly SyncList<float> speedOverrides = new SyncList<float>();
 
     public override void OnStartClient()
     {
         base.OnStartClient();
-        //_rb ??= GetComponent<Rigidbody>();
+        _playerTrapped = new PlayerTrappedState();
     }
-
     private void Move()
     {
-        if (_rb.isKinematic) return;
+        if (_rb.isKinematic || _playerTrapped.IsTrapped) return;
+
         _animator.SetBool("Walking", _rb.velocity.magnitude >= 0.2f);
         if (speedOverrides.Count > 0)
         {

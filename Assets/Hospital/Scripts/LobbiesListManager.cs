@@ -34,7 +34,7 @@ public class LobbiesListManager : MonoBehaviour
     {
         for(int i = 0; i < lobbyIDs.Count; i++)
         {
-            if (lobbyIDs[i].m_SteamID == result.m_ulSteamIDLobby)
+            if (lobbyIDs[i].m_SteamID == result.m_ulSteamIDLobby && SteamMatchmaking.GetLobbyData((CSteamID)lobbyIDs[i].m_SteamID, "name").Contains("HospitalYG"))
             {
                 GameObject createdItem = Instantiate(lobbyDataItemPrefab);
                 createdItem.GetComponent<LobbyDataEntry>().lobbyID = (CSteamID)lobbyIDs[i].m_SteamID;

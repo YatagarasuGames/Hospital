@@ -4,16 +4,21 @@ using UnityEngine;
 using Mirror;
 using TMPro;
 
-public class PlayerCollectService : NetworkBehaviour
+public class PlayerCollectService
 {
-    [SerializeField] private Transform _camera;
-    [SerializeField] private GameObject _juice;
+    private Transform _camera;
+    /*[SerializeField] private GameObject _juice;
     [SerializeField] private GameObject _table;
     [SerializeField] private GameObject _trap;
-    [SerializeField] private TMP_Text _juiceCountText;
+    [SerializeField] private TMP_Text _juiceCountText;*/
     [SyncVar(hook = nameof(SyncJuiceCount))] private int _juiceCount;
 
-    private void Update()
+    public PlayerCollectService(Transform camera)
+    {
+        _camera = camera;
+    }
+
+    /*private void Update()
     {
         if (isOwned)
         {
@@ -29,7 +34,7 @@ public class PlayerCollectService : NetworkBehaviour
                 else CmdCreateJuice();
             }
         }
-    }
+    }*/
 
     [Server]
     public void Collect()
@@ -42,14 +47,15 @@ public class PlayerCollectService : NetworkBehaviour
             {
                 collectable.Collect();
                 _juiceCount++;
-                _juiceCountText.text = string.Format("JuiceCount: {0}", _juiceCount.ToString());
+                //_juiceCountText.text = string.Format("JuiceCount: {0}", _juiceCount.ToString());
             }            
         }
     }
 
     public void SyncJuiceCount(int oldValue, int newValue)
     {
-        _juiceCountText.text = string.Format("JuiceCount: {0}", newValue.ToString());
+        //_juiceCountText.text = string.Format("JuiceCount: {0}", newValue.ToString());
+        
     }
 
     [Command]
@@ -58,7 +64,7 @@ public class PlayerCollectService : NetworkBehaviour
         Collect();
     }
 
-    [Server]
+    /*[Server]
     public void CreateJuice()
     {
         var juice = Instantiate(_juice);
@@ -73,5 +79,5 @@ public class PlayerCollectService : NetworkBehaviour
     public void CmdCreateJuice()
     {
         CreateJuice();
-    }
+    }*/
 }
