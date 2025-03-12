@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2084175702901047221}
   - component: {fileID: 8625884317076301412}
   - component: {fileID: 6897090012426369414}
-  - component: {fileID: 3682068339706397860}
+  - component: {fileID: 4507822116275676764}
   m_Layer: 0
   m_Name: Juice
   m_TagString: Untagged
@@ -161,7 +161,7 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &3682068339706397860
+--- !u!114 &4507822116275676764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,9 +170,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2742312056757452687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55290ed6aba3daa478603a2f505f9b5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d670952689b6fd4db63ca367cae3084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  <Affiliation>k__BackingField: 0
+  <Type>k__BackingField: 0
+  <InHandPrefab>k__BackingField: {fileID: 2742312056757452687}

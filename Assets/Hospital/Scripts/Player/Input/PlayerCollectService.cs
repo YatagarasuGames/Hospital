@@ -7,34 +7,13 @@ using TMPro;
 public class PlayerCollectService
 {
     private Transform _camera;
-    /*[SerializeField] private GameObject _juice;
-    [SerializeField] private GameObject _table;
-    [SerializeField] private GameObject _trap;
-    [SerializeField] private TMP_Text _juiceCountText;*/
-    [SyncVar(hook = nameof(SyncJuiceCount))] private int _juiceCount;
+    private Inventory _inventory;
 
-    public PlayerCollectService(Transform camera)
+    public PlayerCollectService(Transform camera, Inventory inventory)
     {
         _camera = camera;
+        _inventory = inventory;
     }
-
-    /*private void Update()
-    {
-        if (isOwned)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (isServer) Collect();
-                else CmdCollect();
-            }
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                if (isServer) CreateJuice();
-                else CmdCreateJuice();
-            }
-        }
-    }*/
 
     [Server]
     public void Collect()
@@ -43,19 +22,13 @@ public class PlayerCollectService
         Debug.DrawRay(_camera.position, _camera.forward);
         if (Physics.Raycast(_camera.position, _camera.forward, out hit, 2f))
         {
-            if(hit.collider.gameObject.TryGetComponent(out ICollectable collectable))
+            if(hit.collider.gameObject.TryGetComponent(out CollectableItem collectable))
             {
+                _inventory.Add((byte)collectable.Type);
                 collectable.Collect();
-                _juiceCount++;
-                //_juiceCountText.text = string.Format("JuiceCount: {0}", _juiceCount.ToString());
+                
             }            
         }
-    }
-
-    public void SyncJuiceCount(int oldValue, int newValue)
-    {
-        //_juiceCountText.text = string.Format("JuiceCount: {0}", newValue.ToString());
-        
     }
 
     [Command]
@@ -63,21 +36,4 @@ public class PlayerCollectService
     {
         Collect();
     }
-
-    /*[Server]
-    public void CreateJuice()
-    {
-        var juice = Instantiate(_juice);
-        NetworkServer.Spawn(juice);
-        var table = Instantiate(_table);
-        NetworkServer.Spawn(table);
-        var trap = Instantiate(_trap);
-        NetworkServer.Spawn(trap);
-    }
-
-    [Command]
-    public void CmdCreateJuice()
-    {
-        CreateJuice();
-    }*/
 }

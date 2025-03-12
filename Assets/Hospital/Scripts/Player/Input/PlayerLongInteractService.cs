@@ -20,7 +20,7 @@ public class PlayerLongInteractService
         RaycastHit hit;
         if (Physics.Raycast(_camera.position, _camera.forward, out hit, 2f))
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             if (hit.collider.gameObject.TryGetComponent(out ILongInteractable interactable))
             {
                 interactable.InteractStep();
