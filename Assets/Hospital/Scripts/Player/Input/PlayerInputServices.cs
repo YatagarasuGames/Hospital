@@ -8,12 +8,14 @@ public class PlayerInputServices : NetworkBehaviour
     private PlayerCollectService _playerCollectService;
     private Inventory _inventory;
     [SerializeField] private GameObject _juice;
+    [SerializeField] private GameObject _trap;
 
     public override void OnStartClient()
     {
         Init();
         Application.targetFrameRate = 60;
         if(isServer && isOwned) for(int i = 0;  i < 4; i++) { var tempJuice = Instantiate(_juice);  NetworkServer.Spawn(tempJuice); }
+        if (isServer && isOwned) { var tempTrap = Instantiate(_trap); NetworkServer.Spawn(tempTrap); }
     }
 
     private void Init()
@@ -29,11 +31,7 @@ public class PlayerInputServices : NetworkBehaviour
         {
             if(Input.GetKey(KeyCode.E))
             {
-                if (isServer)
-                {
-                    LongInteract();
-
-                }
+                if (isServer) LongInteract();
                 else CmdLongInteract();
             }
 

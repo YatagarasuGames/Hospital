@@ -1,15 +1,34 @@
+using Mirror;
+using UnityEngine;
 public class PlayerTrappedState
 {
-    public bool IsTrapped { get; private set; } = false;
+    [SyncVar] public bool isTrapped = false;
+    private Rigidbody _rigidbody;
+    
+    public PlayerTrappedState(Rigidbody rigidbody)
+    {
+        _rigidbody = rigidbody;
+    }
 
+    [Server]
     public void TrapPlayer()
     {
-        if (IsTrapped) return;
-        IsTrapped = true;
+        _rigidbody.isKinematic = true;
+        isTrapped = true;
+        RpcUpdateTrappedState(true);
     }
-    public void UnTrapPlayer()
+
+    [Server]
+    public void CmdUnTrapPlayer()
     {
-        if (!IsTrapped) return;
-        IsTrapped = false;
+        _rigidbody.isKinematic = false;
+        RpcUpdateTrappedState(false);
+    }
+
+    [ClientRpc] // Вызывается сервером, но выполняется на всех клиентах
+    private void RpcUpdateTrappedState(bool trapped)
+    {
+        _rigidbody.isKinematic = trapped;
+        Debug.Log("tretertq");
     }
 }

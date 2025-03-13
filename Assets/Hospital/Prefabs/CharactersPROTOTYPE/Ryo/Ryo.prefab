@@ -2983,6 +2983,7 @@ MonoBehaviour:
   syncInterval: 0
   _camera: {fileID: 8842989815974024140}
   _juice: {fileID: 2742312056757452687, guid: b3ce48a4a4fabc74c88e34077bebf4fc, type: 3}
+  _trap: {fileID: 6474216338644661876, guid: 9100ff3f33f1e064d8d3b565f3218404, type: 3}
 --- !u!1 &8964677444224272377
 GameObject:
   m_ObjectHideFlags: 0
