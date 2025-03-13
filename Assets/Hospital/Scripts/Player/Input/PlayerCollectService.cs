@@ -18,6 +18,7 @@ public class PlayerCollectService
     [Server]
     public void Collect()
     {
+        if (!_inventory.CanCollectItem()) return;
         RaycastHit hit;
         Debug.DrawRay(_camera.position, _camera.forward);
         if (Physics.Raycast(_camera.position, _camera.forward, out hit, 2f))

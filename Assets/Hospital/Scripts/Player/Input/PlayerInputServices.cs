@@ -13,7 +13,7 @@ public class PlayerInputServices : NetworkBehaviour
     {
         Init();
         Application.targetFrameRate = 60;
-        if(isServer && isOwned) for(int i = 0;  i < 1; i++) { var tempJuice = Instantiate(_juice);  NetworkServer.Spawn(tempJuice); }
+        if(isServer && isOwned) for(int i = 0;  i < 4; i++) { var tempJuice = Instantiate(_juice);  NetworkServer.Spawn(tempJuice); }
     }
 
     private void Init()
@@ -88,9 +88,9 @@ public class PlayerInputServices : NetworkBehaviour
     [Server]
     private void HandleInventoryInput(int inventoryCell)
     {
-        //Instantiate(_inventory.Get(inventoryCell - 1));
-        var tempGO = Instantiate(_inventory.Get(inventoryCell - 1));
-        NetworkServer.Spawn(tempGO);
+        GameObject tempGO = _inventory.Get(inventoryCell - 1);
+        if (tempGO == null) return; 
+        NetworkServer.Spawn(Instantiate(tempGO));
     }
 
     [Command]
