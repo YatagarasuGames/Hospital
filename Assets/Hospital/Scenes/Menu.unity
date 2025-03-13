@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 124655240}
   - component: {fileID: 124655239}
   - component: {fileID: 124655238}
+  - component: {fileID: 124655241}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -350,7 +351,7 @@ MonoBehaviour:
   offlineScene: Assets/Hospital/Scenes/Menu.unity
   onlineScene: Assets/Hospital/Scenes/SampleScene.unity
   offlineSceneLoadDelay: 0
-  transport: {fileID: 124655238}
+  transport: {fileID: 124655241}
   networkAddress: localhost
   maxConnections: 2
   disconnectInactiveConnections: 0
@@ -436,6 +437,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67415abf4ed5d074a96024cfb45ea849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &124655241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124655233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 7777
+  DualMode: 1
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  RecvBufferSize: 7361536
+  SendBufferSize: 7361536
+  FastResend: 2
+  ReceiveWindowSize: 4096
+  SendWindowSize: 4096
+  MaxRetransmit: 40
+  MaximizeSocketBuffers: 1
+  ReliableMaxMessageSize: 297433
+  UnreliableMaxMessageSize: 1194
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &226632549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,9 +2060,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124655239}
-        m_TargetAssemblyTypeName: SteamLobby, Assembly-CSharp
-        m_MethodName: HostLobby
+      - m_Target: {fileID: 124655236}
+        m_TargetAssemblyTypeName: Mirror.NetworkManager, Mirror
+        m_MethodName: StartHost
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3632,9 +3662,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1613254443}
-        m_TargetAssemblyTypeName: LobbiesListManager, Assembly-CSharp
-        m_MethodName: GetListOfLobbies
+      - m_Target: {fileID: 124655236}
+        m_TargetAssemblyTypeName: Mirror.NetworkManager, Mirror
+        m_MethodName: StartClient
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

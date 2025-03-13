@@ -27,6 +27,7 @@ public class PlayerCollectService
                 _inventory.Add((byte)collectable.Type);
                 collectable.Collect();
                 
+                
             }            
         }
     }
