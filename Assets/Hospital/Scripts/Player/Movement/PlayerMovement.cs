@@ -21,6 +21,7 @@ public class PlayerMovement : NetworkBehaviour
         if (_rb.isKinematic) return;
 
         _animator.SetBool("Walking", _rb.velocity.magnitude >= 0.2f);
+        
         if (speedOverrides.Count > 0)
         {
             _speed = speedOverrides[speedOverrides.Count - 1];
