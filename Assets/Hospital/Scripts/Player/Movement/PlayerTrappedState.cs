@@ -2,26 +2,25 @@ using Mirror;
 using UnityEngine;
 public class PlayerTrappedState
 {
-    [SyncVar] public bool isTrapped = false;
+    private bool _isTrapped = false;
     private Rigidbody _rigidbody;
     
-    public PlayerTrappedState(Rigidbody rigidbody)
+    public PlayerTrappedState(Rigidbody rigidbody, ref bool isTrapped)
     {
         _rigidbody = rigidbody;
+        _isTrapped = isTrapped;
     }
 
     [Server]
     public void TrapPlayer()
     {
-        _rigidbody.isKinematic = true;
-        isTrapped = true;
+        _isTrapped = true;
         RpcUpdateTrappedState(true);
     }
 
     [Server]
-    public void CmdUnTrapPlayer()
+    public void UnTrapPlayer()
     {
-        _rigidbody.isKinematic = false;
         RpcUpdateTrappedState(false);
     }
 

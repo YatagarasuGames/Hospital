@@ -8,19 +8,17 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float _speed = 5f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody _rb;
-    [SyncVar] public bool isTrapped = false;
-    public PlayerTrappedState PlayerTrapped {  get; private set; }
+    [SyncVar] private bool isTrapped = false;
 
     public readonly SyncList<float> speedOverrides = new SyncList<float>();
 
-    public override void OnStartClient()
+    private void FixedUpdate()
     {
-        base.OnStartClient();
-        PlayerTrapped = new PlayerTrappedState(_rb);
+        Move();
     }
     private void Move()
     {
-        if (_rb.isKinematic || isTrapped) return;
+        if (_rb.isKinematic) return;
 
         _animator.SetBool("Walking", _rb.velocity.magnitude >= 0.2f);
         if (speedOverrides.Count > 0)
@@ -35,30 +33,19 @@ public class PlayerMovement : NetworkBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
+
 
     [Server]
-    public void TrapPlayer()
+    public void SetTrappedState(bool newTrappedState)
     {
-        isTrapped = true;
-        RpcUpdateTrappedState(true);
+        isTrapped = newTrappedState;
+        RpcUpdateTrappedState(isTrapped);
     }
 
-    [Server]
-    public void UnTrapPlayer()
-    {
-        isTrapped = false;
-        RpcUpdateTrappedState(false);
-    }
-
-    [ClientRpc] // Вызывается сервером, но выполняется на всех клиентах
+    [ClientRpc]
     private void RpcUpdateTrappedState(bool trapped)
     {
-        isTrapped = trapped;
-        Debug.Log("tretertq");
+        _rb.isKinematic = trapped;
     }
 
 }

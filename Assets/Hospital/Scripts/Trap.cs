@@ -19,7 +19,7 @@ public class Trap : NetworkBehaviour, ILongInteractable
             print("fdgfdgdg");
             isActivated = true;
             player = other.gameObject.GetComponent<PlayerMovement>();
-            player.TrapPlayer();
+            player.SetTrappedState(true);
             
         }
     }
@@ -38,7 +38,7 @@ public class Trap : NetworkBehaviour, ILongInteractable
     {
         isActivated = false;
 
-        player.UnTrapPlayer();
+        player.SetTrappedState(false);
 
         NetworkServer.Destroy(gameObject);
         Destroy(gameObject);
