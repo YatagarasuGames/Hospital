@@ -9,12 +9,14 @@ public class PlayerInputServices : NetworkBehaviour
     private Inventory _inventory;
     [SerializeField] private GameObject _juice;
     [SerializeField] private GameObject _trap;
+    [SerializeField] private GameObject classSwithcer;
 
     public override void OnStartClient()
     {
         Init();
         Application.targetFrameRate = 60;
         if(isServer && isOwned) for(int i = 0;  i < 4; i++) { var tempJuice = Instantiate(_juice);  NetworkServer.Spawn(tempJuice); }
+        if (isServer && isOwned) { var tempTrap = Instantiate(classSwithcer); NetworkServer.Spawn(tempTrap); }
         if (isServer && isOwned) { var tempTrap = Instantiate(_trap); NetworkServer.Spawn(tempTrap); }
     }
 

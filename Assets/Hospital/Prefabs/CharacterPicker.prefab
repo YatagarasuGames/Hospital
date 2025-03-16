@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3178594732128364199}
   - component: {fileID: 2493177074843122882}
   - component: {fileID: 6766325825966297400}
-  - component: {fileID: 5986677917306059658}
+  - component: {fileID: 7539255077153561855}
   m_Layer: 0
   m_Name: Yellow
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5986677917306059658
+--- !u!114 &7539255077153561855
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 904018357580948944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829817b11eb6b844c9941feff52171ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dbd87a398330b8449c1331d7201b171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
   _classCharacterMesh: {fileID: 0}
+  _trapPlacerModule: {fileID: 170835673442056202, guid: 5d127741d45a053458c31b87a2c5c0e3,
+    type: 3}
 --- !u!1 &6141321415495911032
 GameObject:
   m_ObjectHideFlags: 0

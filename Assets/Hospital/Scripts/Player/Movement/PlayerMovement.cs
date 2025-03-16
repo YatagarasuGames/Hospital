@@ -40,6 +40,7 @@ public class PlayerMovement : NetworkBehaviour
     public void SetTrappedState(bool newTrappedState)
     {
         isTrapped = newTrappedState;
+        _rb.isKinematic = isTrapped;
         RpcUpdateTrappedState(isTrapped);
     }
 
