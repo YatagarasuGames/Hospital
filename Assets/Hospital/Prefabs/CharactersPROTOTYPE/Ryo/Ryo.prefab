@@ -2716,6 +2716,7 @@ GameObject:
   - component: {fileID: 2927724543959806017}
   - component: {fileID: 282202428297410205}
   - component: {fileID: 952743483908593882}
+  - component: {fileID: 8244901306748270978}
   m_Layer: 0
   m_Name: Ryo
   m_TagString: Survivor
@@ -2986,6 +2987,27 @@ MonoBehaviour:
   _trap: {fileID: 6474216338644661876, guid: 9100ff3f33f1e064d8d3b565f3218404, type: 3}
   classSwithcer: {fileID: 6141321415495911032, guid: e1f8f1b5e2818024eb83dfbf8295f20a,
     type: 3}
+--- !u!114 &8244901306748270978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8708819487122946043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  outlineMode: 2
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &8964677444224272377
 GameObject:
   m_ObjectHideFlags: 0

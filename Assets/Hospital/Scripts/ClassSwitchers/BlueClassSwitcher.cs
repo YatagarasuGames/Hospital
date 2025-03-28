@@ -10,7 +10,7 @@ public class BlueClassSwitcher : BaseClassSwitcher
     {
         if(NetworkServer.spawned.TryGetValue(callerNetId, out var instance))
         {
-            instance.gameObject.AddComponent(typeof(BlueClassSpeedOverride));
+            //instance.gameObject.AddComponent(typeof(BlueClassSpeedOverride));
             print("Added");
         }
     }
@@ -20,7 +20,7 @@ public class BlueClassSwitcher : BaseClassSwitcher
     {
         if (NetworkServer.spawned.TryGetValue(callerNetId, out var instance))
         {
-            Destroy(instance.gameObject.GetComponent<BlueClassSpeedOverride>());
+            //Destroy(instance.gameObject.GetComponent<BlueClassSpeedOverride>());
         }
     }
 }
