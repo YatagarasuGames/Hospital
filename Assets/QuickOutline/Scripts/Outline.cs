@@ -134,7 +134,8 @@ public class Outline : NetworkBehaviour {
     if (needsUpdate) {
       needsUpdate = false;
 
-      UpdateMaterialProperties();
+            if (isServer) UpdateMaterialProperties();
+            else CmdUpdateMaterialProperties();
     }
   }
 
@@ -270,6 +271,7 @@ public class Outline : NetworkBehaviour {
     mesh.SetTriangles(mesh.triangles, mesh.subMeshCount - 1);
   }
 
+    [Server]
   void UpdateMaterialProperties() {
 
     // Apply properties according to mode
@@ -307,4 +309,10 @@ public class Outline : NetworkBehaviour {
         break;
     }
   }
+
+    [Command]
+    private void CmdUpdateMaterialProperties()
+    {
+        UpdateMaterialProperties();
+    }
 }

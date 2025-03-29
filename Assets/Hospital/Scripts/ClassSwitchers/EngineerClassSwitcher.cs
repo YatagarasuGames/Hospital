@@ -32,7 +32,7 @@ public class EngineerClassSwitcher : BaseClassSwitcher
         if (NetworkServer.spawned.TryGetValue(playerNetId, out NetworkIdentity playerIdentity))
         {
             // Удаляем компонент TrapPlacer
-            Destroy(playerIdentity.gameObject.GetComponentInChildren<MotionSensorPlacer>());
+            Destroy(playerIdentity.gameObject.GetComponentInChildren<MotionSensorPlacer>().gameObject);
             Debug.Log($"Removed TrapPlacer from player {playerIdentity.gameObject.name}");
         }
         else

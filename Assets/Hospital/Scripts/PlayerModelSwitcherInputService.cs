@@ -10,7 +10,7 @@ public class PlayerModelSwitcherInputService : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
-        if(isLocalPlayer) _playerModel.SetActive(false);
+        if(isLocalPlayer) _playerModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
     }
 
 

@@ -32,7 +32,7 @@ public class HunterClassSwitcher : BaseClassSwitcher
         if (NetworkServer.spawned.TryGetValue(playerNetId, out NetworkIdentity playerIdentity))
         {
             // Удаляем компонент TrapPlacer
-            Destroy(playerIdentity.gameObject.GetComponent<TrapPlacer>());
+            Destroy(playerIdentity.gameObject.GetComponent<TrapPlacer>().gameObject);
             Debug.Log($"Removed TrapPlacer from player {playerIdentity.gameObject.name}");
         }
         else

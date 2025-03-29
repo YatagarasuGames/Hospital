@@ -32,7 +32,7 @@ public class AthleteClassSwitcher : BaseClassSwitcher
         if (NetworkServer.spawned.TryGetValue(playerNetId, out NetworkIdentity playerIdentity))
         {
             // Удаляем компонент TrapPlacer
-            Destroy(playerIdentity.gameObject.GetComponentInChildren<AthleteSpeedOverride>());
+            Destroy(playerIdentity.gameObject.GetComponentInChildren<AthleteSpeedOverride>().gameObject);
             Debug.Log($"Removed SpeedBuff from player {playerIdentity.gameObject.name}");
         }
         else

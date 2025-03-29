@@ -8,7 +8,6 @@ public class MotionSensorPlacer : NetworkBehaviour
 {
     [SerializeField] private GameObject _motionSensor; // Префаб ловушки
     private Transform _camera;
-    private string _trapPrefabName = "MotionSensor"; // Имя префаба ловушки
 
     private void OnEnable()
     {
