@@ -122,7 +122,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _outlinedMaterial: {fileID: 2100000, guid: 311313efa011949e98b6761d652ad13c, type: 2}
+  outlineTime: 7
 --- !u!114 &2303195702532550408
 MonoBehaviour:
   m_ObjectHideFlags: 0

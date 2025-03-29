@@ -6,6 +6,9 @@ using UnityEngine;
 public class MotionSensor : NetworkBehaviour
 {
     [SyncVar] private bool _isEnabled = true;
+    [SerializeField] private float outlineTime;
+    [SyncVar] private uint outlinedPlayerId;
+
     [ServerCallback]
     private void OnTriggerEnter(Collider other)
     {
@@ -14,18 +17,30 @@ public class MotionSensor : NetworkBehaviour
         {
             _isEnabled = false;
             other.gameObject.GetComponent<NetworkOutline>().isOutlined = true;
-            RpcSetOutlinedMaterial(other.gameObject.GetComponent<NetworkIdentity>().netId);
+            outlinedPlayerId = other.gameObject.GetComponent<NetworkIdentity>().netId;
+            RpcSetOutlinedMaterial(outlinedPlayerId, true);
+            StartCoroutine(StopOutline());
+        }
+    }
+
+    private IEnumerator StopOutline()
+    {
+        yield return new WaitForSeconds(outlineTime);
+        if (NetworkServer.spawned.TryGetValue(outlinedPlayerId, out var instance))
+        {
+            instance.gameObject.GetComponent<NetworkOutline>().isOutlined = false;
+            RpcSetOutlinedMaterial(outlinedPlayerId, false);
         }
     }
 
     [ClientRpc]
-    private void RpcSetOutlinedMaterial(uint netId)
+    private void RpcSetOutlinedMaterial(uint netId, bool isOutlined)
     {
         if (NetworkServer.spawned.TryGetValue(netId, out var instance))
         {
-            instance.gameObject.GetComponent<NetworkOutline>().isOutlined = true;
+            instance.gameObject.GetComponent<NetworkOutline>().isOutlined = isOutlined;
             print("Added");
         }
-        
+
     }
 }
