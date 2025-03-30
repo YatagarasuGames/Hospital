@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6766325825966297400}
   - component: {fileID: 7539255077153561855}
   m_Layer: 0
-  m_Name: Yellow
+  m_Name: Hunter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _classCharacterMesh: {fileID: 0}
-  _trapPlacerModule: {fileID: 170835673442056202, guid: 5d127741d45a053458c31b87a2c5c0e3,
-    type: 3}
+  _modules:
+  - {fileID: 170835673442056202, guid: 5d127741d45a053458c31b87a2c5c0e3, type: 3}
 --- !u!1 &2977589899150557469
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _classCharacterMesh: {fileID: 0}
-  _motionSensorPlacerModule: {fileID: 170835673442056202, guid: 852635cfc56dbd84682e724533d1282f,
-    type: 3}
+  _modules:
+  - {fileID: 170835673442056202, guid: 852635cfc56dbd84682e724533d1282f, type: 3}
 --- !u!1 &6141321415495911032
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,5 +496,5 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   _classCharacterMesh: {fileID: 0}
-  _speedBuff: {fileID: 170835673442056202, guid: f0331269037fa6847a23b448262a7e7c,
-    type: 3}
+  _modules:
+  - {fileID: 170835673442056202, guid: f0331269037fa6847a23b448262a7e7c, type: 3}

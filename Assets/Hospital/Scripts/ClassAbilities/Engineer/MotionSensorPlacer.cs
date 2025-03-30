@@ -11,7 +11,7 @@ public class MotionSensorPlacer : NetworkBehaviour
 
     private void OnEnable()
     {
-        _camera = transform.parent.GetComponentInChildren<Camera>().transform;
+        _camera = transform.parent.GetComponentInParent<ModulesObjectsBuffer>().Camera.transform;
     }
     private void Update()
     {

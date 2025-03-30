@@ -9,10 +9,10 @@ public class TrapPlacer : NetworkBehaviour
 
     private void OnEnable()
     {
-        _camera = transform.parent.GetComponentInChildren<Camera>().transform;
+        _camera = transform.parent.GetComponentInParent<ModulesObjectsBuffer>().Camera.transform;
     }
     private void Update()
-    {
+    {   
         // Только для локального игрока и если префаб инициализирован
 
 
