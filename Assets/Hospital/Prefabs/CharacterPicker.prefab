@@ -124,6 +124,7 @@ MonoBehaviour:
   _classCharacterMesh: {fileID: 0}
   _modules:
   - {fileID: 170835673442056202, guid: 5d127741d45a053458c31b87a2c5c0e3, type: 3}
+  - {fileID: 170835673442056202, guid: 4fdc0aca3839d2d4a99458c9778e881a, type: 3}
 --- !u!1 &2977589899150557469
 GameObject:
   m_ObjectHideFlags: 0
