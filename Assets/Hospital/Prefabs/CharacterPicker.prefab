@@ -499,3 +499,4 @@ MonoBehaviour:
   _classCharacterMesh: {fileID: 0}
   _modules:
   - {fileID: 170835673442056202, guid: f0331269037fa6847a23b448262a7e7c, type: 3}
+  - {fileID: 170835673442056202, guid: 13e75dc4bd3c9414ca3e86608279ac34, type: 3}
