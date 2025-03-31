@@ -36,7 +36,7 @@ public class Trap : NetworkBehaviour, ILongInteractable
     [Server]
     public void CompleteInteract()
     {
-        isActivated = false;
+        //isActivated = false;
 
         player.SetTrappedState(false);
 

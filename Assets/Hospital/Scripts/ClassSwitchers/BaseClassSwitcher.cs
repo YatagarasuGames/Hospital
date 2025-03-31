@@ -7,6 +7,7 @@ public abstract class BaseClassSwitcher : NetworkBehaviour
 {
     [SerializeField] protected Mesh _classCharacterMesh;
     [SerializeField] protected List<GameObject> _modules;
+    
 
     [Server]
     public virtual void Append(uint callerNetId)
@@ -33,7 +34,7 @@ public abstract class BaseClassSwitcher : NetworkBehaviour
             Transform modulesGameObject = playerIdentity.gameObject.transform.Find("Modules").transform;
             for(int i = 0; i < _modules.Count; i++)
             {
-                Destroy(modulesGameObject.GetChild(0).gameObject);
+                Destroy(modulesGameObject.Find(_modules[i].name + "(Clone)").gameObject);
             }
         }
         else

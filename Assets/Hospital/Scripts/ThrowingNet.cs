@@ -7,28 +7,31 @@ public class ThrowingNet : NetworkBehaviour
 {
     [SyncVar] private Vector3 _throwForce;
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private GameObject _attachedNet;
+
     [Server]
     public void Init(Vector3 throwDirection)
     {
-        print(isServer);
         _throwForce = throwDirection;
-        //GetComponent<Rigidbody>().AddForce(throwDirection, ForceMode.Impulse);
-        //RpcInit(throwDirection);
         if (!isServer) return;
         _rb.AddForce(_throwForce, ForceMode.Impulse);
-        print("AddedForce");
-        RpcInit(throwDirection);
     }
 
     [Server]
-    private void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Survivor"))
+        {
+            print(isServer);
+            other.gameObject.GetComponent<PlayerMovement>().SetTrappedState(true);
+            GameObject tempNet = Instantiate(_attachedNet);
+            tempNet.transform.position = other.transform.position;
+            NetworkServer.Spawn(tempNet, other.gameObject);
+            tempNet.GetComponent<AttachedNet>().Init(other.GetComponent<NetworkIdentity>().netId);
+            
+        }
+
+        Destroy(gameObject);
     }
 
-    [ClientRpc]
-    private void RpcInit(Vector3 throwDirection)
-    {
-        _rb.AddForce(throwDirection, ForceMode.Impulse);
-    }
 }
