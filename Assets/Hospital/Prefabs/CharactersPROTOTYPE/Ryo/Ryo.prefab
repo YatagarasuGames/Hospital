@@ -1216,6 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Camera>k__BackingField: {fileID: 1049638245678462067}
+  <Player>k__BackingField: {fileID: 8708819487122946043}
 --- !u!1 &3157983257554854980
 GameObject:
   m_ObjectHideFlags: 0
