@@ -42,6 +42,8 @@ public class AthleteGasVulnerebility : NetworkBehaviour
         AddDebuff(debuff, duration);
     }
 
+    
+
 
 
 

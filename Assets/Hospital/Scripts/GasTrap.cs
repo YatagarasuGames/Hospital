@@ -21,8 +21,12 @@ public class GasTrap : NetworkBehaviour
             _player = other.gameObject.GetComponent<PlayerMovement>();
             _player.AddSpeedDebuff(_speedDebuff, true, _duration);
             _particleSystem.Play();
+            RpcEnableParticleSystem();
 
         }
     }
+
+    [ClientRpc]
+    private void RpcEnableParticleSystem() => _particleSystem.Play();
 
 }
