@@ -6,28 +6,49 @@ using UnityEngine;
 public class AthleteGasVulnerebility : NetworkBehaviour
 {
     private PlayerMovement _playerMovement;
-    [SerializeField] private float _speedMultiplier = 2f;
+    private NetworkIdentity _playerNetworkIdentity;
+    [SerializeField] private float _speedMultiplier = 0.5f;
+
     private void OnEnable()
     {
-        if (isOwned) print("Owned");
         _playerMovement = GetComponentInParent<ModulesObjectsBuffer>().Player.GetComponent<PlayerMovement>();
-        _playerMovement.speedOverrides.OnAdd += AddSpeed;
-        //_playerMovement.speedOverrides.OnRemove += RemoveSpeed;
+        _playerNetworkIdentity = GetComponentInParent<ModulesObjectsBuffer>().Player.GetComponent<NetworkIdentity>();
+
+        if (_playerNetworkIdentity.isServer) PlayerMovement.onSpeedDebuff += AppendDoubleDebuff;
+        else PlayerMovement.onSpeedDebuff += CmdAppendDoubleDebuff;
     }
 
-    private void AddSpeed(int indexWhereNewSpeedAdded)
+    [Server]
+    private void AppendDoubleDebuff(float debuff, float duration)
     {
-        _playerMovement.speedOverrides.Add(_playerMovement.speedOverrides[indexWhereNewSpeedAdded]*_speedMultiplier);
+        AddDebuff(debuff*_speedMultiplier, duration);
     }
 
-    private void RemoveSpeed(int indexWhereSpeedRemoved, float removedSpeedValue)
+    [Command]
+    private void CmdAppendDoubleDebuff(float debuff, float duration)
     {
-
+        CmdAddDebuff(debuff * _speedMultiplier, duration);
     }
+
+    [Server]
+    private void AddDebuff(float debuff, float duration)
+    {
+        _playerMovement.AddSpeedDebuff(debuff, duration: duration);
+    }
+
+    [Command]
+    private void CmdAddDebuff(float debuff, float duration)
+    {
+        AddDebuff(debuff, duration);
+    }
+
+
+
 
     private void OnDisable()
     {
-        _playerMovement.speedOverrides.OnAdd -= AddSpeed;
+        if (_playerNetworkIdentity.isServer) PlayerMovement.onSpeedDebuff -= AppendDoubleDebuff;
+        else PlayerMovement.onSpeedDebuff -= CmdAppendDoubleDebuff;
     }
 
 

@@ -65,4 +65,4 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _speedMultiplier: 2
+  _speedMultiplier: 0.5
