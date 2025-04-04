@@ -8,7 +8,6 @@ using UnityEngine.UIElements;
 public class NetThrower : NetworkBehaviour
 {
     [SerializeField] private GameObject _throwedNet;
-    [SerializeField] private GameObject _attachedNet;
     [SerializeField] private float _throwForce = 150;
     private Transform _camera;
 

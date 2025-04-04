@@ -44,6 +44,22 @@ public class PlayerMovement : NetworkBehaviour
         RpcUpdateTrappedState(isTrapped);
     }
 
+    [Server]
+    public void SetTrappedState(bool newTrappedState, float duration)
+    {
+        isTrapped = newTrappedState;
+        _rb.isKinematic = isTrapped;
+        RpcUpdateTrappedState(isTrapped);
+        StartCoroutine(UntrapPlayer(duration));
+    }
+
+    [Server]
+    private IEnumerator UntrapPlayer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        SetTrappedState(false);
+    }
+
     [ClientRpc]
     private void RpcUpdateTrappedState(bool trapped)
     {

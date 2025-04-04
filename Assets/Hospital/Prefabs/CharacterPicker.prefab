@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7607004445732886523}
   - component: {fileID: 3871402595338758018}
   - component: {fileID: 8670782110799022237}
-  - component: {fileID: 6304694706606590637}
+  - component: {fileID: 4666583853624678204}
   m_Layer: 0
   m_Name: Engineer
   m_TagString: Untagged
@@ -231,7 +231,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6304694706606590637
+--- !u!114 &4666583853624678204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2977589899150557469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882eb79039deaf942a19d8f4c0ba3238, type: 3}
+  m_Script: {fileID: 11500000, guid: 0df76a41bf1ceff45ac65f493c468a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
@@ -248,8 +248,7 @@ MonoBehaviour:
   syncInterval: 0
   _classCharacterMesh: {fileID: 0}
   _modules:
-  - {fileID: 170835673442056202, guid: e503b70a2a38f664a9747f1bd93ecb4d, type: 3}
-  - {fileID: 170835673442056202, guid: 06eea76f4e5ae7d4e88179633e83e911, type: 3}
+  - {fileID: 170835673442056202, guid: a2cfc0d63779bb449a2fc00fb85b4599, type: 3}
 --- !u!1 &6141321415495911032
 GameObject:
   m_ObjectHideFlags: 0
