@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System.Reflection;
 
 public class SwitchRoleButton : NetworkBehaviour, IInteract
 {
@@ -20,6 +21,7 @@ public class SwitchRoleButton : NetworkBehaviour, IInteract
         if(!_wasClicked && NetworkServer.spawned.TryGetValue(interactCaller, out NetworkIdentity player))
         {
             _wasClicked = true;
+            DeleteAllModulesOnPlayer(interactCaller);
             player.GetComponent<NetworkTransformReliable>().ServerTeleport(_newSpawnpointPosition, Quaternion.identity);
         }
     }
@@ -28,5 +30,21 @@ public class SwitchRoleButton : NetworkBehaviour, IInteract
     public void CmdInteract(uint interactCaller)
     {
         Interact(interactCaller);
+    }
+
+    [Server]
+    private void DeleteAllModulesOnPlayer(uint _playerId)
+    {
+        if (NetworkServer.spawned.TryGetValue(_playerId, out NetworkIdentity playerIdentity))
+        {
+            Transform modulesGameObject = playerIdentity.gameObject.transform.Find("Modules").transform;
+            int modulesCount = modulesGameObject.childCount;
+            print(modulesCount);
+            for (int i = 0; i < modulesCount; i++)
+            {
+                Destroy(modulesGameObject.GetChild(i).gameObject);
+                print("destroyed child");
+            }
+        }
     }
 }
