@@ -5,18 +5,28 @@ using Mirror;
 
 public class SwitchRoleButton : NetworkBehaviour, IInteract
 {
-    [SyncVar] private bool _wasClicked = false;
-    [SerializeField] private Transform _newSpawnpointPosition;
+    [SyncVar] public bool _wasClicked = false;
+    [SerializeField] private string newSpawnpointPositionName;
+    private Transform _newSpawnpointPosition;
+
+    private void OnEnable()
+    {
+        _newSpawnpointPosition = GameObject.Find(newSpawnpointPositionName).transform;
+    }
 
     [Server]
-    public void Interact()
+    public void Interact(uint interactCaller)
     {
-        
+        if(!_wasClicked && NetworkServer.spawned.TryGetValue(interactCaller, out NetworkIdentity player))
+        {
+            _wasClicked = true;
+            player.GetComponent<NetworkTransformReliable>().ServerTeleport(_newSpawnpointPosition.position, Quaternion.identity);
+        }
     }
 
     [Command]
-    public void CmdInteract()
+    public void CmdInteract(uint interactCaller)
     {
-        
+        Interact(interactCaller);
     }
 }

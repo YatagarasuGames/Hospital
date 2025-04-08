@@ -739,6 +739,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6394414543273091342, guid: c4182a1bc6d1855408cf1e707168c7e8,
+        type: 3}
+      propertyPath: newSpawnpointPositionName
+      value: HunterDefaultPosition
+      objectReference: {fileID: 0}
     - target: {fileID: 7680934399311143989, guid: c4182a1bc6d1855408cf1e707168c7e8,
         type: 3}
       propertyPath: m_Name
