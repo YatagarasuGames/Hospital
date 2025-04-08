@@ -7,11 +7,11 @@ public class SwitchRoleButton : NetworkBehaviour, IInteract
 {
     [SyncVar] public bool _wasClicked = false;
     [SerializeField] private string newSpawnpointPositionName;
-    private Transform _newSpawnpointPosition;
+    private Vector3 _newSpawnpointPosition;
 
     private void OnEnable()
     {
-        _newSpawnpointPosition = GameObject.Find(newSpawnpointPositionName).transform;
+        _newSpawnpointPosition = GameObject.Find(newSpawnpointPositionName).transform.position;
     }
 
     [Server]
@@ -20,7 +20,7 @@ public class SwitchRoleButton : NetworkBehaviour, IInteract
         if(!_wasClicked && NetworkServer.spawned.TryGetValue(interactCaller, out NetworkIdentity player))
         {
             _wasClicked = true;
-            player.GetComponent<NetworkTransformReliable>().ServerTeleport(_newSpawnpointPosition.position, Quaternion.identity);
+            player.GetComponent<NetworkTransformReliable>().ServerTeleport(_newSpawnpointPosition, Quaternion.identity);
         }
     }
 

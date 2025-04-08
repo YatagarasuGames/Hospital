@@ -6,6 +6,7 @@ public class PlayerInputServices : NetworkBehaviour
     [SerializeField] private Transform _camera;
     private PlayerLongInteractService _playerLongInteractService;
     private PlayerCollectService _playerCollectService;
+    private PlayerInteractService _playerInteractService;
     private Inventory _inventory;
     [SerializeField] private GameObject _juice;
     [SerializeField] private GameObject _trap;
@@ -25,12 +26,19 @@ public class PlayerInputServices : NetworkBehaviour
         _inventory = new Inventory();
         _playerLongInteractService = new PlayerLongInteractService(_camera);
         _playerCollectService = new PlayerCollectService(_camera, _inventory);
+        _playerInteractService = new PlayerInteractService(_camera, GetComponent<NetworkIdentity>().netId);
     }
 
     private void Update()
     {
         if (isOwned)
         {
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if (isServer) _playerInteractService.Interact();
+                else _playerInteractService.CmdInteract();
+            }
+
             if(Input.GetKey(KeyCode.E))
             {
                 if (isServer) LongInteract();
