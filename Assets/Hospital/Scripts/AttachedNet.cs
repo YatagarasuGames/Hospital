@@ -36,5 +36,6 @@ public class AttachedNet : NetworkBehaviour, ILongInteractable
 
         NetworkServer.Destroy(gameObject);
         Destroy(gameObject);
+        
     }
 }

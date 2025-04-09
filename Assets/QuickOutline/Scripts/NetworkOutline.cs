@@ -10,7 +10,7 @@ public class NetworkOutline : NetworkBehaviour
     private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
     [SyncVar(hook = nameof(HandleOutlineStateChange))]
-    public bool isOutlined = false;
+    private bool _isOutlined = false;
 
     public Color OutlineColor
     {
@@ -66,6 +66,36 @@ public class NetworkOutline : NetworkBehaviour
     }
 
 
+    [Command]
+    public void CmdEnableOutlineLocal()
+    {
+        if (_isOutlined) return;
+        _isOutlined = true;
+        AddMaterials();
+    }
+
+    [Command]
+    public void CmdDisableOutlineLocal()
+    {
+        if (!_isOutlined) return;
+        _isOutlined = false;
+        RemoveMaterials();
+    }
+
+    [Command]
+    public void CmdEnableOutlineToAll()
+    {
+        CmdEnableOutlineLocal();
+        RpcSetOutlineFormat(true);
+    }
+
+    [Command]
+    public void CmdDisableOutlineToAll()
+    {
+        CmdEnableOutlineLocal();
+        RpcSetOutlineFormat(false);
+    }
+
     private void HandleOutlineStateChange(bool oldBool, bool newBool)
     {
         if(oldBool ==  newBool) return;
@@ -101,6 +131,7 @@ public class NetworkOutline : NetworkBehaviour
         RemoveMaterials();
     }
 
+    [Command]
     private void AddMaterials()
     {
         foreach (var renderer in renderers)
@@ -116,6 +147,7 @@ public class NetworkOutline : NetworkBehaviour
         }
     }
 
+    [Command]
     private void RemoveMaterials()
     {
         foreach (var renderer in renderers)
