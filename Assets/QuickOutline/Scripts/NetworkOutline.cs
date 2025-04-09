@@ -9,7 +9,7 @@ public class NetworkOutline : NetworkBehaviour
 {
     private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
-    [SyncVar(hook = nameof(HandleOutlineStateChange))]
+    [SyncVar]
     private bool _isOutlined = false;
 
     public Color OutlineColor
@@ -65,73 +65,52 @@ public class NetworkOutline : NetworkBehaviour
         else CmdSetOutlineFormat(false);
     }
 
-
-    [Command]
-    public void CmdEnableOutlineLocal()
+    [Server]
+    public void SetOutlineFormat(NetworkConnectionToClient connection, bool isOutlined)
     {
-        if (_isOutlined) return;
-        _isOutlined = true;
-        AddMaterials();
+        TargetSetOutlineFormat(connection, isOutlined);
     }
 
     [Command]
-    public void CmdDisableOutlineLocal()
+    public void CmdSetOutlineFormat(NetworkConnectionToClient connection, bool isOutlined)
     {
-        if (!_isOutlined) return;
-        _isOutlined = false;
-        RemoveMaterials();
+        SetOutlineFormat(connection, isOutlined);
     }
 
-    [Command]
-    public void CmdEnableOutlineToAll()
+    [TargetRpc]
+    public void TargetSetOutlineFormat(NetworkConnectionToClient connection, bool isOutlined)
     {
-        CmdEnableOutlineLocal();
-        RpcSetOutlineFormat(true);
-    }
-
-    [Command]
-    public void CmdDisableOutlineToAll()
-    {
-        CmdEnableOutlineLocal();
-        RpcSetOutlineFormat(false);
-    }
-
-    private void HandleOutlineStateChange(bool oldBool, bool newBool)
-    {
-        if(oldBool ==  newBool) return;
-        if (isServer) SetOutlineFormat(newBool);
-        else CmdSetOutlineFormat(newBool);
+        _isOutlined = isOutlined;
+        if (_isOutlined) AddMaterials();
+        else { RemoveMaterials(); print("d"); }
     }
 
     [Server]
-    private void SetOutlineFormat(bool isOutlined)
+    public void SetOutlineFormat(bool isOutlined)
     {
-        if (isOutlined) AddMaterials();
-        else RemoveMaterials();
-
         RpcSetOutlineFormat(isOutlined);
+    }
+
+    [Command]
+    public void CmdSetOutlineFormat(bool isOutlined)
+    {
+        SetOutlineFormat(isOutlined);
     }
 
     [ClientRpc]
     private void RpcSetOutlineFormat(bool isOutlined)
     {
-        if (isOutlined) AddMaterials();
+        _isOutlined = isOutlined;
+        if (_isOutlined) AddMaterials();
         else RemoveMaterials();
     }
 
-    [Command]
-    private void CmdSetOutlineFormat(bool isOutlined)
-    {
-        print(isOutlined);
-        SetOutlineFormat(isOutlined);
-    }
 
     void OnDisable()
     {
         RemoveMaterials();
     }
 
-    [Command]
     private void AddMaterials()
     {
         foreach (var renderer in renderers)
@@ -147,7 +126,6 @@ public class NetworkOutline : NetworkBehaviour
         }
     }
 
-    [Command]
     private void RemoveMaterials()
     {
         foreach (var renderer in renderers)
@@ -162,6 +140,8 @@ public class NetworkOutline : NetworkBehaviour
             renderer.materials = materials.ToArray();
         }
     }
+
+
 
     void LoadSmoothNormals()
     {

@@ -3630,7 +3630,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  isOutlined: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 2
   bakeKeys: []
@@ -3652,7 +3651,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  camera: {fileID: 1049638245678462067}
+  _camera: {fileID: 1049638245678462067}
 --- !u!1 &8964677444224272377
 GameObject:
   m_ObjectHideFlags: 0

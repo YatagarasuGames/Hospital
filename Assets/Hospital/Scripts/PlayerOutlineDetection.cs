@@ -7,8 +7,8 @@ using UnityEngine;
 public class PlayerOutlineDetection : NetworkBehaviour
 {
     [SerializeField] private GameObject _camera;
-    private GameObject _outlinedObject;
-    private OutlinableItem _outlinableObject;
+
+    [SyncVar] private uint _outlinableObjectId = 0;
 
 
     private void Update()
@@ -22,24 +22,43 @@ public class PlayerOutlineDetection : NetworkBehaviour
             if (hit.collider.gameObject.TryGetComponent(out OutlinableItem detectedObject))
             {
                 if (detectedObject.enabled == false) return;
-                _outlinedObject = hit.collider.gameObject;
-                _outlinableObject = detectedObject;
-                _outlinableObject.EnableOutline();
+                _outlinableObjectId = hit.collider.gameObject.GetComponent<NetworkIdentity>().netId;
+
+                if (NetworkServer.spawned.TryGetValue(_outlinableObjectId, out NetworkIdentity outlinedObject))
+                {
+                    if (isServer) outlinedObject.GetComponent<OutlinableItem>().Outline.SetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, true);
+                    else outlinedObject.GetComponent<OutlinableItem>().Outline.CmdSetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, true);
+                    print("a");
+                }
+                
             }
             else
             {
-                if (_outlinedObject == null) return;
-                _outlinableObject.DisableOutline();
-                _outlinedObject = null;
-                _outlinableObject = null;
+                if (_outlinableObjectId == 0) return;
+
+                if(NetworkServer.spawned.TryGetValue(_outlinableObjectId, out NetworkIdentity outlinedObject))
+                {
+                    if (isServer) outlinedObject.GetComponent<OutlinableItem>().Outline.SetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, false);
+                    else outlinedObject.GetComponent<OutlinableItem>().Outline.CmdSetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, false);
+                }
+                    
+
+                _outlinableObjectId = 0;
+                print("b");
             }
         }
         else
         {
-            if (_outlinedObject == null) return;
-            _outlinableObject.DisableOutline();
-            _outlinedObject = null;
-            _outlinableObject = null;
+            if(_outlinableObjectId != 0)
+            {
+                if (NetworkServer.spawned.TryGetValue(_outlinableObjectId, out NetworkIdentity outlinedObject))
+                {
+                    if(isServer) outlinedObject.GetComponent<OutlinableItem>().Outline.SetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, false);
+                    else outlinedObject.GetComponent<OutlinableItem>().Outline.CmdSetOutlineFormat(GetComponent<NetworkIdentity>().connectionToClient, false);
+                    print("c");
+                }
+            }
+            _outlinableObjectId = 0;
         }
     }
 

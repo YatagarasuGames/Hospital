@@ -36,8 +36,8 @@ public class ChemistWallHackModule : NetworkBehaviour
         {
             if(playerOutline == null) continue;
             print(playerOutline);
-            playerOutline._isOutlined = true;
-            RpcSetOutlinedMaterial(playerOutline.GetComponent<NetworkIdentity>().netId, true);
+            //playerOutline.SetOutlineFormat(true, GetComponentInParent<NetworkIdentity>);
+            //RpcSetOutlinedMaterial(playerOutline.GetComponent<NetworkIdentity>().netId, true);
         }
     }
 
@@ -46,7 +46,7 @@ public class ChemistWallHackModule : NetworkBehaviour
     {
         if (NetworkServer.spawned.TryGetValue(netId, out var instance))
         {
-            instance.gameObject.GetComponent<NetworkOutline>()._isOutlined = isOutlined;
+            //instance.gameObject.GetComponent<NetworkOutline>().SetOutlineFormat(isOutlined, false);
             print("Added");
         }
 

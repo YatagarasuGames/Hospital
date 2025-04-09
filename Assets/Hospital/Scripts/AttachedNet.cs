@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AttachedNet : NetworkBehaviour, ILongInteractable
 {
-    [SyncVar] private bool isActivated = false;
+    //[SyncVar] private bool isActivated = false;
     [SerializeField] private float deactivationTime = 5f;
     private float deactivationDuration;
     private PlayerMovement _playerMovement;
@@ -30,7 +30,7 @@ public class AttachedNet : NetworkBehaviour, ILongInteractable
     [Server]
     public void CompleteInteract()
     {
-        isActivated = false;
+        //isActivated = false;
 
         _playerMovement.SetTrappedState(false);
 

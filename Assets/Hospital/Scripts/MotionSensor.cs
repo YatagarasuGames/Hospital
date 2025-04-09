@@ -16,9 +16,9 @@ public class MotionSensor : NetworkBehaviour
         if (other.gameObject.CompareTag("Survivor"))
         {
             _isEnabled = false;
-            other.gameObject.GetComponent<NetworkOutline>()._isOutlined = true;
+            other.gameObject.GetComponent<NetworkOutline>().SetOutlineFormat(true);
             outlinedPlayerId = other.gameObject.GetComponent<NetworkIdentity>().netId;
-            RpcSetOutlinedMaterial(outlinedPlayerId, true);
+            //RpcSetOutlinedMaterial(outlinedPlayerId, true);
             StartCoroutine(StopOutline());
         }
     }
@@ -28,19 +28,18 @@ public class MotionSensor : NetworkBehaviour
         yield return new WaitForSeconds(outlineTime);
         if (NetworkServer.spawned.TryGetValue(outlinedPlayerId, out var instance))
         {
-            instance.gameObject.GetComponent<NetworkOutline>()._isOutlined = false;
-            RpcSetOutlinedMaterial(outlinedPlayerId, false);
+            instance.gameObject.GetComponent<NetworkOutline>().SetOutlineFormat(false);
+            //RpcSetOutlinedMaterial(outlinedPlayerId, false);
         }
     }
 
-    [ClientRpc]
+    /*[ClientRpc]
     private void RpcSetOutlinedMaterial(uint netId, bool isOutlined)
     {
         if (NetworkServer.spawned.TryGetValue(netId, out var instance))
         {
-            instance.gameObject.GetComponent<NetworkOutline>()._isOutlined = isOutlined;
-            print("Added");
+            instance.gameObject.GetComponent<NetworkOutline>().SetOutlineFormat(isOutlined);
         }
 
-    }
+    }*/
 }
