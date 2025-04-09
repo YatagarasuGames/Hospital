@@ -9,7 +9,6 @@ public class OutlinableItem : NetworkBehaviour
     [field: SerializeField] public NetworkOutline Outline { get; private set; }
     private void OnEnable()
     {
-        Outline = GetComponent<NetworkOutline>();
         Outline.SetOutlineFormat(false);
         Outline.OutlineWidth = 3;
         Outline.OutlineColor = Color.gray;

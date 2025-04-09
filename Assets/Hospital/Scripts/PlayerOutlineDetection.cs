@@ -21,7 +21,7 @@ public class PlayerOutlineDetection : NetworkBehaviour
         {
             if (hit.collider.gameObject.TryGetComponent(out OutlinableItem detectedObject))
             {
-                if (detectedObject.enabled == false) return;
+                if (detectedObject.enabled == false || _outlinableObjectId != 0) return;
                 _outlinableObjectId = hit.collider.gameObject.GetComponent<NetworkIdentity>().netId;
 
                 if (NetworkServer.spawned.TryGetValue(_outlinableObjectId, out NetworkIdentity outlinedObject))
