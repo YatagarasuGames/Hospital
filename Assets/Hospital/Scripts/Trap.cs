@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class Trap : NetworkBehaviour, ILongInteractable
+public class Trap : NetworkBehaviour, ILongInteractable, IImageTip
 {
     [SyncVar] private bool isActivated = false;
     [SerializeField] private float deactivationTime = 5f;
@@ -44,4 +44,14 @@ public class Trap : NetworkBehaviour, ILongInteractable
         Destroy(gameObject);
     }
 
+    [SerializeField] private Sprite tip;
+    public Sprite GetUI()
+    {
+        return tip;
+    }
+
+    string ITip.GetUI()
+    {
+        return "trap";
+    }
 }

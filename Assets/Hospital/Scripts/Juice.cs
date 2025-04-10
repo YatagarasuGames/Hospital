@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Juice : NetworkBehaviour, ICollectable
 {
+
     [Server]
     public void Collect()
     {

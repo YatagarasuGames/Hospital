@@ -181,6 +181,7 @@ MonoBehaviour:
   <Affiliation>k__BackingField: 0
   <Type>k__BackingField: 0
   <InHandPrefab>k__BackingField: {fileID: 2742312056757452687}
+  <Tip>k__BackingField: 
 --- !u!114 &53025544762549149
 MonoBehaviour:
   m_ObjectHideFlags: 0

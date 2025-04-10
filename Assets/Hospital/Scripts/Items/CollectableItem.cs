@@ -8,7 +8,7 @@ public class CollectableItem : NetworkBehaviour
     [field: SerializeField] public ItemAffiliation Affiliation { get; private set; }
     [field: SerializeField] public ItemType Type { get; private set; }
     [field: SerializeField] public GameObject InHandPrefab { get; private set; }
-
+    public string Tip { get; set; } = "Сок\nУвеличивает скорость движения";
 
     public override void OnStartServer()
     {
