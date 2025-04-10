@@ -36,7 +36,8 @@ public class ChemistWallHackModule : NetworkBehaviour
         {
             if(playerOutline == null) continue;
             print(playerOutline);
-            //playerOutline.SetOutlineFormat(true, GetComponentInParent<NetworkIdentity>);
+            NetworkConnectionToClient connection = GetComponent<NetworkIdentity>().connectionToClient;
+            playerOutline.SetOutlineFormat(connection, true);
             //RpcSetOutlinedMaterial(playerOutline.GetComponent<NetworkIdentity>().netId, true);
         }
     }

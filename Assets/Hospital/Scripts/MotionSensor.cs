@@ -19,6 +19,7 @@ public class MotionSensor : NetworkBehaviour
             other.gameObject.GetComponent<NetworkOutline>().SetOutlineFormat(true);
             outlinedPlayerId = other.gameObject.GetComponent<NetworkIdentity>().netId;
             //RpcSetOutlinedMaterial(outlinedPlayerId, true);
+
             StartCoroutine(StopOutline());
         }
     }
