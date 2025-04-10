@@ -30,6 +30,7 @@ public class SwitchRoleButton : NetworkBehaviour, IInteract
     public void CmdInteract(uint interactCaller)
     {
         Interact(interactCaller);
+        print("TpCall");
     }
 
     [Server]

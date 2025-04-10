@@ -35,8 +35,8 @@ public class PlayerInputServices : NetworkBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (isServer) _playerInteractService.Interact();
-                else _playerInteractService.CmdInteract();
+                if (isServer) Interact();
+                else CmdInteract();
             }
 
             if(Input.GetKey(KeyCode.E))
@@ -68,6 +68,17 @@ public class PlayerInputServices : NetworkBehaviour
             }
 
         }
+    }
+
+    [Server]
+    private void Interact()
+    {
+        _playerInteractService.Interact();
+    }
+    [Command]
+    private void CmdInteract()
+    {
+        _playerInteractService.CmdInteract();
     }
 
     [Server]
