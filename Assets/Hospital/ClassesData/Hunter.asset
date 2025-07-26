@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106b5573d2654dc4aa6d389df6ebda8b, type: 3}
+  m_Name: Hunter
+  m_EditorClassIdentifier: 
+  HeadMaterials:
+  - {fileID: 2100000, guid: ebdbbeae0e8c0a34aa2f6be891fdfc7b, type: 2}
+  BodyMaterials:
+  - {fileID: 2100000, guid: ebdbbeae0e8c0a34aa2f6be891fdfc7b, type: 2}
+  - {fileID: 2100000, guid: 8816faf88b11c6f48a09fc860b868eaa, type: 2}
+  - {fileID: 2100000, guid: 4853766894cd81a4babc8b3e3c406a16, type: 2}
+  - {fileID: 2100000, guid: ec869105298cc6a4e910a2f7cba557ea, type: 2}
+  Modules:
+  - {fileID: 170835673442056202, guid: 4fdc0aca3839d2d4a99458c9778e881a, type: 3}
+  - {fileID: 170835673442056202, guid: 5d127741d45a053458c31b87a2c5c0e3, type: 3}
+  HeadMesh:
+    m_AssetGUID: 546ba72b0b725ed4cbdc55c563a4c81f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BodyMesh:
+    m_AssetGUID: 63e1fdee1306b51478a06b58f63690e4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  InentorySlots: 3
+  Tag: Hunter

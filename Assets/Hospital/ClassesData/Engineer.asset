@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106b5573d2654dc4aa6d389df6ebda8b, type: 3}
+  m_Name: Engineer
+  m_EditorClassIdentifier: 
+  HeadMaterials:
+  - {fileID: 2100000, guid: 763e5babae539b442bda6496acd2558c, type: 2}
+  - {fileID: 2100000, guid: 2e22a79f581ecd948a1bd9574516d030, type: 2}
+  BodyMaterials:
+  - {fileID: 2100000, guid: 763e5babae539b442bda6496acd2558c, type: 2}
+  - {fileID: 2100000, guid: 430516bc65d9e71439ac7a50a502df59, type: 2}
+  - {fileID: 2100000, guid: d5631231d0e64454ca9af316e8e20eb2, type: 2}
+  - {fileID: 2100000, guid: c4360330dcf646b43959aeddaf832ec4, type: 2}
+  Modules:
+  - {fileID: 170835673442056202, guid: 852635cfc56dbd84682e724533d1282f, type: 3}
+  HeadMesh:
+    m_AssetGUID: 2376c9fb0abc6c741a57aa5305d9e6f8
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BodyMesh:
+    m_AssetGUID: e145389e2645b4741b5093d7bf5c631e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  InentorySlots: 2
+  Tag: Survivor

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106b5573d2654dc4aa6d389df6ebda8b, type: 3}
+  m_Name: Chemist
+  m_EditorClassIdentifier: 
+  HeadMaterials:
+  - {fileID: 2100000, guid: 0f733570e380ba442b7dcdb2a7b4b693, type: 2}
+  - {fileID: 2100000, guid: fc3e9f49ceb553147ba25f4500953362, type: 2}
+  BodyMaterials:
+  - {fileID: 2100000, guid: 0f733570e380ba442b7dcdb2a7b4b693, type: 2}
+  - {fileID: 2100000, guid: 70ff36ac4e3768647ae73f5e21a9ff9e, type: 2}
+  - {fileID: 2100000, guid: 9d45690a8c59cd74da19ac9b57da1591, type: 2}
+  - {fileID: 2100000, guid: f9e2107172cc4a74399e64afa70de081, type: 2}
+  - {fileID: 2100000, guid: e22e91845830aa34a87eed65d902b7e9, type: 2}
+  Modules:
+  - {fileID: 170835673442056202, guid: e503b70a2a38f664a9747f1bd93ecb4d, type: 3}
+  - {fileID: 170835673442056202, guid: 06eea76f4e5ae7d4e88179633e83e911, type: 3}
+  HeadMesh:
+    m_AssetGUID: 53743193d576f7248b5ce1c528e2706d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BodyMesh:
+    m_AssetGUID: 1c6c70e35e22c4b45a770f80debc5934
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  InentorySlots: 3
+  Tag: Hunter

@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: CharactersModels
+  m_EditorClassIdentifier: 
+  m_GroupName: CharactersModels
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 05931e408624c9c49953a96cd1fe00a7
+  m_SerializeEntries:
+  - m_GUID: 89fde36d899ca7442b153b1cc02f8d85
+    m_Address: DefaultBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e845d60e8b98eb4d9ea8867a238550f
+    m_Address: ChemistBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e80a7999258e824bbb72e4377e47a78
+    m_Address: ChemistBody2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed50c55f665b1504aa2b868db8bfc4f3
+    m_Address: AthleteHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bde7c9d261eaf7947b7440d977c67861
+    m_Address: AthleteBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2376c9fb0abc6c741a57aa5305d9e6f8
+    m_Address: EngineerHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e145389e2645b4741b5093d7bf5c631e
+    m_Address: EngineerBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21d991ea65093ac408b1805d19f0b55b
+    m_Address: GhostHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63083c87e69721c41be4dafcecc68ac4
+    m_Address: GhostBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 546ba72b0b725ed4cbdc55c563a4c81f
+    m_Address: HunterHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63e1fdee1306b51478a06b58f63690e4
+    m_Address: HunterBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06cadcc956e4b3d448caedab7b0ea81d
+    m_Address: MilitaryHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4a7053323b928047803da5b621a3cdb
+    m_Address: MilitaryBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 598f8bc2969b68a49bce750041d9f9fc
+    m_Address: SpiritHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 703f9e1545d86b4468139c99fbe198f8
+    m_Address: SpiritBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53743193d576f7248b5ce1c528e2706d
+    m_Address: ChemistHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c6c70e35e22c4b45a770f80debc5934
+    m_Address: ChemistBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53878085588c53b49aec804d4aa3416b
+    m_Address: PolicemanHead
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f65ae1c9eff137044908b3303250eaf4
+    m_Address: PolicemanBody
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e7b673c1833dcdb4a9a8df1bb248750e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 35292100586916e4d9529977a35b40b3, type: 2}
+    - {fileID: 11400000, guid: afdccee672d6363459f54e51dd212652, type: 2}

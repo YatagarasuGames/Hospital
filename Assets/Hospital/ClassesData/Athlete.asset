@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106b5573d2654dc4aa6d389df6ebda8b, type: 3}
+  m_Name: Athlete
+  m_EditorClassIdentifier: 
+  HeadMaterials:
+  - {fileID: 2100000, guid: 5e84f3efaaf72ba4f8f41fbd237500f2, type: 2}
+  BodyMaterials:
+  - {fileID: 2100000, guid: 5e84f3efaaf72ba4f8f41fbd237500f2, type: 2}
+  - {fileID: 2100000, guid: f361123710f6e2942bae4af8f5d39fd0, type: 2}
+  - {fileID: 2100000, guid: aab5692e181224b49aca5579bbcc7871, type: 2}
+  - {fileID: 2100000, guid: 2acc55b5b06e26a4cab0a44e8f7b96ec, type: 2}
+  Modules:
+  - {fileID: 170835673442056202, guid: 13e75dc4bd3c9414ca3e86608279ac34, type: 3}
+  - {fileID: 170835673442056202, guid: f0331269037fa6847a23b448262a7e7c, type: 3}
+  HeadMesh:
+    m_AssetGUID: ed50c55f665b1504aa2b868db8bfc4f3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BodyMesh:
+    m_AssetGUID: bde7c9d261eaf7947b7440d977c67861
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  InentorySlots: 2
+  Tag: Survivor

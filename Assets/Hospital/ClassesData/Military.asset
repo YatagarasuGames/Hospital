@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106b5573d2654dc4aa6d389df6ebda8b, type: 3}
+  m_Name: Military
+  m_EditorClassIdentifier: 
+  HeadMaterials:
+  - {fileID: 2100000, guid: 4baf818b701fee345a9600f55b787d0c, type: 2}
+  - {fileID: 2100000, guid: 69d9c001e766c5c43bc6212fde675b80, type: 2}
+  - {fileID: 2100000, guid: a3d1ce20962f5e248bfab7e44d752645, type: 2}
+  BodyMaterials:
+  - {fileID: 2100000, guid: 4baf818b701fee345a9600f55b787d0c, type: 2}
+  - {fileID: 2100000, guid: 2398b342cd835c44aa4fb8e2c541ca1e, type: 2}
+  - {fileID: 2100000, guid: 96358ab67de73d040bcb7b9a3a963163, type: 2}
+  - {fileID: 2100000, guid: d26b30b5419750343a19b8dab69d870b, type: 2}
+  Modules:
+  - {fileID: 170835673442056202, guid: 814fcccc3793dca44b9564488c6a51b0, type: 3}
+  - {fileID: 170835673442056202, guid: 7059727f9a5e8154fbef848f63c65b40, type: 3}
+  HeadMesh:
+    m_AssetGUID: 06cadcc956e4b3d448caedab7b0ea81d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  BodyMesh:
+    m_AssetGUID: b4a7053323b928047803da5b621a3cdb
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 1
+  InentorySlots: 2
+  Tag: Survivor
